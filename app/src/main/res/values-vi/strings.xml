@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Tìm kiếm</string>
+    <string name="txtError">Có lỗi xảy ra</string>
+    <string name="txtFeature">Chức năng đang phát triển</string>
+    <string name="txtLoad">Tải từ vựng</string>
+    <string name="txtLoadok">Tải hoàn tất, bấm vào nút để chơi</string>
+    <string name="txtNumWord">số lượng từ bạn muốn luyện tập</string>
+    <string name="txtaddword">Thêm từ mới</string>
+    <string name="txtadj">*Tính từ</string>
+    <string name="txtcancel">Hủy bỏ!</string>
+    <string name="txtclose">Đóng</string>
+    <string name="txtentercontent">Nhập nội dung để tìm kiếm</string>
+    <string name="txtfav">Từ vựng yêu thích</string>
+    <string name="txtgame">Trò chơi</string>
+    <string name="txtgotost">Đi đến Cài đặt</string>
+    <string name="txtimagedes">* Hình ảnh mô tả</string>
+    <string name="txtinfoapp">Thông tin ứng dụng</string>
+    <string name="txtnoun">* Danh từ</string>
+    <string name="txtpolicy">Chính sách</string>
+    <string name="txtpopupwd">Cửa sổ popup</string>
+    <string name="txtreplay">Chơi lại</string>
+    <string name="txtrequire">Bạn cần cho phép ứng dụng ghi đè lên ứng dụng khác</string>
+    <string name="txtresult">Kết quả</string>
+    <string name="txtrightans">Trả lời đúng</string>
+    <string name="txtsearch">Tìm kiếm</string>
+    <string name="txtsearchword">"Tìm từ "</string>
+    <string name="txtshareapp">Chia sẻ ứng dụng</string>
+    <string name="txttranslate">Dịch bằng Yandex</string>
+    <string name="txtverb">* Động từ</string>
+    <string name="txtwotd">Từ vựng trong ngày</string>
+    <string name="txtwrongans">Đáp án sai</string>
+</resources>

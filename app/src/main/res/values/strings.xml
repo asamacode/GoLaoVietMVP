@@ -1,3 +1,44 @@
 <resources>
-    <string name="app_name">GoLaoVietMVP</string>
+    <string name="app_name" translatable="false">Lao Viet Dictionary</string>
+    <string name="api_key" translatable="false">trnsl.1.1.20180918T001312Z.7fd38c7286539b66.112b843a29826f0ec57f1c08cc3cfbadf0a5432d</string>
+    <string name="title_activity_trang_chu" translatable="false">LaoViet Dictionary</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">LaoViet - App Dictionary</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
+    <string name="txttranslate">YanDex Translate</string>
+    <string name="action_settings"> Search</string>
+    <string name="txtfav"> Favorites Word</string>
+    <string name="txtgame"> Games</string>
+    <string name="txtinfoapp"> App Info</string>
+    <string name="txtshareapp"> Share App</string>
+    <string name="txtimagedes"> * Describe Image</string>
+    <string name="txtnoun"> * Noun</string>
+    <string name="txtverb"> * Verb</string>
+    <string name="txtadj"> * Adjective</string>
+    <string name="txtsearch"> Search</string>
+    <string name="txtentercontent"> Enter the content to search</string>
+    <string name="txtwotd"> Word Of The Day</string>
+    <string name="txtrequire">You need to allow the app to draw on the other app</string>
+    <string name="txtgotost">Go to Settings</string>
+    <string name="txtpopupwd">Popup Window</string>
+    <string name="txtresult">Result</string>
+    <string name="txtrightans">Right Answer</string>
+    <string name="txtwrongans">Wrong Answer</string>
+    <string name="txtreplay">Play Again</string>
+    <string name="txtclose">Close</string>
+    <string name="txtaddword">Add New Word</string>
+    <string name="txtsearchword">Search Word</string>
+    <string name="test_ad_banner" translatable="false">ca-app-pub-9358282277611765/6496436767</string>
+    <string name="test_app_id" translatable="false">ca-app-pub-9358282277611765~6959471190</string>
+    <string name="test_intertial_id" translatable="false">ca-app-pub-9358282277611765/7347797084</string>
+    <string name="txtNumWord">Number of word you want to play</string>
+    <string name="txtLoad">Load word</string>
+    <string name="txtLoadok">Load Complete, Click Button To Play</string>
+    <string name="txtFeature">Funtion is developing</string>
+    <string name="txtError">An error occurred</string>
+    <string name="txtcancel">Canceled!</string>
+    <string name="txtpolicy">Policy</string>
+    <string name="txturl" translatable="false">http://goqb.gq/golaoviet/privacy_policy.html</string>
+    <string name="action_search">Search</string>
 </resources>

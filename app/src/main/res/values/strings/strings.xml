@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txttranslate">ຢານເດກ ແປ</string>
+    <string name="action_settings">" ຄົ້ນຫາ"</string>
+    <string name="txtfav">" ຄຳທີ່ມັກ"</string>
+    <string name="txtgame">" ເກມ"</string>
+    <string name="txtinfoapp">" ຂໍ້ມູນແອັບ"</string>
+    <string name="txtshareapp">" ແບ່ງປັນແອັບ"</string>
+    <string name="txtimagedes">" * ຮູບພາບ"</string>
+    <string name="txtnoun">" * ຄຳນາມ"</string>
+    <string name="txtadj">" * ຄຳຄຸນນາມ"</string>
+    <string name="txtverb">" * ຄຳກຳມະ"</string>
+    <string name="txtentercontent">" ໃສ່ເນື້ອຫາທີ່ຈະແປ"</string>
+    <string name="txtwotd">" ຄໍາສັບຂອງມື້ນີ້"</string>
+    <string name="txtsearch">" ຄົ້ນຫາ"</string>
+    <string name="txtrequire">ທ່ານຈໍາເປັນຕ້ອງອະນຸຍາດໃຫ້ແອັບເປີດໃສ່ໃນແອັບອື່ນໆ</string>
+    <string name="txtgotost">ໄປທີ່ຕັ້ງຄ່າ</string>
+    <string name="txtpopupwd">ປ໋ອບອັບວິນໂດ່</string>
+    <string name="txtresult">ຜົນ</string>
+    <string name="txtrightans">ຄຳຕອບທີ່ຖືກຕ້ອງ</string>
+    <string name="txtwrongans">ຄຳຕອບທີ່ຜິດ</string>
+    <string name="txtreplay">ຄຳຕອບທີ່ຜິດ</string>
+    <string name="txtclose">ປິດ</string>
+    <string name="txtsearchword">ຄົ້ນຫາຄຳ</string>
+    <string name="txtcancel">ໄດ້ຍົກເລີກ</string>
+    <string name="txtaddword">ເພີ່ມຄຳໃໝ່</string>
+    <string name="txtNumWord">ຈໍານວນຄໍາທີ່ທ່ານຕ້ອງການຫຼິ້ນ</string>
+    <string name="txtLoad">ໂຫລດຄຳ</string>
+    <string name="txtError">ມີຂໍ້ຜິດພາດເກີດຂື້ນ</string>
+    <string name="txtFeature">ຟັງຊັນກຳລັງພັດທະນາ</string>
+    <string name="txtLoadok">ໂຫລດແລ້ວສົມບູນ,ກົດປຸ່ມເພື່ອຫຼິ້ນ</string>
+    <string name="txtpolicy">ນະໂຍບາຍ</string>
+</resources>
