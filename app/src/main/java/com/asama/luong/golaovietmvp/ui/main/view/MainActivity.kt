@@ -1,52 +1,111 @@
 package com.asama.luong.golaovietmvp.ui.main.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.view.MenuItem
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.asama.luong.golaovietmvp.R
+import com.asama.luong.golaovietmvp.ui.about.view.AboutFragment
 import com.asama.luong.golaovietmvp.ui.base.view.BaseActivity
 import com.asama.luong.golaovietmvp.ui.main.interactor.MainMVPInteractor
 import com.asama.luong.golaovietmvp.ui.main.presenter.MainMVPPresenter
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.support.HasSupportFragmentInjector
+import com.asama.luong.golaovietmvp.util.extention.addFragment
+import com.asama.luong.golaovietmvp.util.extention.removeFragment
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 import javax.inject.Inject
 
-class MainActivity : BaseActivity(), MainMVPView, HasSupportFragmentInjector {
+class MainActivity : BaseActivity(), MainMVPView,
+    NavigationView.OnNavigationItemSelectedListener {
 
     @Inject
     internal lateinit var mPresenter : MainMVPPresenter<MainMVPView, MainMVPInteractor>
 
-    @Inject
-    internal lateinit var fragmentDispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+//    @Inject
+//    internal lateinit var fragmentDispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
-    override fun supportFragmentInjector(): AndroidInjector<Fragment> = fragmentDispatchingAndroidInjector
+// de sau them HasSupportFragmentInjection
+//    override fun supportFragmentInjector(): AndroidInjector<Fragment> = fragmentDispatchingAndroidInjector
+
 
     override fun openTranslateFragment() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun openAboutFragment() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        lockDrawer()
+        supportFragmentManager.addFragment(R.id.about_fragment, AboutFragment.newInstance(), AboutFragment.TAG)
     }
 
     override fun openRateUsFragment() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setUpDrawerMenu()
+
+        mPresenter.onAttach(this)
     }
 
-    override fun lockDrawer(): Unit? {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private fun setUpDrawerMenu() {
+        setSupportActionBar(toolbar)
+        val toggle = ActionBarDrawerToggle(
+            this, drawerLayout, toolbar,
+            R.string.navigation_drawer_open, R.string.navigation_drawer_close
+        )
+
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+        nav_view.setNavigationItemSelectedListener(this)
     }
 
-    override fun unlockDrawer(): Unit? {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun lockDrawer(): Unit? = drawerLayout?.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+    override fun unlockDrawer(): Unit? = drawerLayout?.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+
+    override fun onBackPressed() {
+
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        }
+        val fragment = supportFragmentManager.findFragmentByTag(AboutFragment.TAG)
+        fragment?.let {
+            onFragmentDetached(AboutFragment.TAG)
+        } ?: super.onBackPressed()
     }
 
+    override fun onDestroy() {
+        mPresenter.onDetach()
+        super.onDestroy()
+    }
 
+    override fun onFragmentAttached() {
+    }
+
+    override fun onFragmentDetached(tag: String) {
+        supportFragmentManager.removeFragment(tag = tag)
+        unlockDrawer()
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.nav_trans -> {
+                mPresenter.onDrawerTranslateClick()
+            }
+            R.id.nav_about -> {
+                mPresenter.onDrawerOptionAboutClick()
+            }
+            R.id.nav_share -> {
+                mPresenter.onDrawerOptionRateUsClick()
+            }
+        }
+
+        drawerLayout.closeDrawer(GravityCompat.START)
+        return true
+    }
 
 }

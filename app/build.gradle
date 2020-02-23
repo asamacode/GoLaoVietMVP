@@ -52,6 +52,7 @@ dependencies {
 
     // dependency injection
     implementation "com.google.dagger:dagger:$rootProject.dagger2Version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
     kapt "com.google.dagger:dagger-android-processor:$rootProject.dagger2Version"
     implementation "com.google.dagger:dagger-android-support:$rootProject.dagger2Version"

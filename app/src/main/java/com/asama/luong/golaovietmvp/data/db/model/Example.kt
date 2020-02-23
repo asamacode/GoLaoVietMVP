@@ -2,12 +2,11 @@ package com.asama.luong.golaovietmvp.data.db.model
 
 import io.realm.RealmObject
 
-data class Example(
+open class Example: RealmObject(){
 
-    var mean: String,
+    var mean: String? = ""
 
-    var ex: String,
+    var ex: String? = ""
 
-    var extran:String
-) : RealmObject(){
+    var extran: String? = ""
 }

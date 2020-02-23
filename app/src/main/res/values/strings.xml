@@ -1,24 +1,26 @@
 <resources>
     <string name="app_name" translatable="false">Lao Viet Dictionary</string>
-    <string name="api_key" translatable="false">trnsl.1.1.20180918T001312Z.7fd38c7286539b66.112b843a29826f0ec57f1c08cc3cfbadf0a5432d</string>
+    <string name="api_key" translatable="false">
+        trnsl.1.1.20180918T001312Z.7fd38c7286539b66.112b843a29826f0ec57f1c08cc3cfbadf0a5432d
+    </string>
     <string name="title_activity_trang_chu" translatable="false">LaoViet Dictionary</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
     <string name="nav_header_title" translatable="false">LaoViet - App Dictionary</string>
     <string name="nav_header_desc" translatable="false">Navigation header</string>
     <string name="txttranslate">YanDex Translate</string>
-    <string name="action_settings"> Search</string>
-    <string name="txtfav"> Favorites Word</string>
-    <string name="txtgame"> Games</string>
-    <string name="txtinfoapp"> App Info</string>
-    <string name="txtshareapp"> Share App</string>
-    <string name="txtimagedes"> * Describe Image</string>
-    <string name="txtnoun"> * Noun</string>
-    <string name="txtverb"> * Verb</string>
-    <string name="txtadj"> * Adjective</string>
-    <string name="txtsearch"> Search</string>
-    <string name="txtentercontent"> Enter the content to search</string>
-    <string name="txtwotd"> Word Of The Day</string>
+    <string name="action_settings">Search</string>
+    <string name="txtfav">Favorites Word</string>
+    <string name="txtgame">Games</string>
+    <string name="txtinfoapp">App Info</string>
+    <string name="txtshareapp">Share App</string>
+    <string name="txtimagedes">* Describe Image</string>
+    <string name="txtnoun">* Noun</string>
+    <string name="txtverb">* Verb</string>
+    <string name="txtadj">* Adjective</string>
+    <string name="txtsearch">Search</string>
+    <string name="txtentercontent">Enter the content to search</string>
+    <string name="txtwotd">Word Of The Day</string>
     <string name="txtrequire">You need to allow the app to draw on the other app</string>
     <string name="txtgotost">Go to Settings</string>
     <string name="txtpopupwd">Popup Window</string>
@@ -41,4 +43,7 @@
     <string name="txtpolicy">Policy</string>
     <string name="txturl" translatable="false">http://goqb.gq/golaoviet/privacy_policy.html</string>
     <string name="action_search">Search</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

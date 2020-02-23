@@ -4,11 +4,10 @@ import io.realm.RealmList
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 
-data class Mean(
+open class Mean: RealmObject(){
 
     @PrimaryKey
-    var word: String,
+    var word: String? = ""
 
-    var listType: RealmList<MeanType>
-) : RealmObject(){
+    var listType: RealmList<MeanType>? = null
 }

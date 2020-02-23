@@ -3,15 +3,14 @@ package com.asama.luong.golaovietmvp.data.db.model
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 
-data class WordFull(
+open class WordFull: RealmObject() {
 
     @PrimaryKey
-    var word: String,
+    var word: String? = ""
 
-    var commonMean: String,
+    var commonMean: String? = ""
 
-    var image: String,
+    var image: String? = ""
 
-    var spell: String
-) : RealmObject() {
+    var spell: String? = ""
 }

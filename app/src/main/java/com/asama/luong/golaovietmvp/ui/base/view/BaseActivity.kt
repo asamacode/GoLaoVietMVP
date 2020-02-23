@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.asama.luong.golaovietmvp.util.CommonUtil
 import dagger.android.AndroidInjection
 
-abstract class BaseActivity: MVPView, AppCompatActivity() {
+abstract class BaseActivity: MVPView, AppCompatActivity(), BaseFragment.Callback {
 
     private var mProgressDialog: ProgressDialog? = null
 
