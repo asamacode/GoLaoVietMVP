@@ -1,5 +1,6 @@
 package com.asama.luong.golaovietmvp.data.db.entity
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -7,11 +8,15 @@ import androidx.room.PrimaryKey
 data class WordFullEntity (
 
     @PrimaryKey
-    var word: String,
+    @ColumnInfo(name = "word")
+    var word: String = "",
 
-    var commonMean: String,
+    @ColumnInfo(name = "common_mean")
+    var commonMean: String? = "",
 
-    var image: String,
+    @ColumnInfo(name = "image")
+    var image: String? = "",
 
-    var spell: String
+    @ColumnInfo(name = "spell")
+    var spell: String? = ""
 )

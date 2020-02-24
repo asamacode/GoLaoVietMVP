@@ -24,4 +24,21 @@ class MainPresenter<V : MainMVPView, I : MainMVPInteractor> @Inject internal con
     override fun onDrawerOptionAboutClick(): Unit? = getView()?.openAboutFragment()
 
     override fun onDrawerOptionRateUsClick(): Unit? = getView()?.openRateUsFragment()
+
+    override fun receiveRandomWordData() {
+
+        getView()?.showProgress()
+
+        interactor?.let {
+            it.getRandomWord()
+                .compose(schedulerProvider.ioToMainObservableScheduler())
+                .subscribe({
+                    getView()?.setRandomWordUI(it)
+                    getView()?.hideProgress()
+                }, {
+                    getView()?.hideProgress()
+                    getView()?.handleError(it)
+                })
+        }
+    }
 }

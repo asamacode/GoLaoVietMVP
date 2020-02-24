@@ -7,17 +7,17 @@ data class WordFull(
 
     @Expose
     @SerializedName("commonmean")
-    var commonmean: String,
+    var commonmean: String? = "",
 
     @Expose
     @SerializedName("image")
-    var image: String,
+    var image: String? = "",
 
     @Expose
     @SerializedName("spell")
-    var spell: String,
+    var spell: String? = "",
 
     @Expose
     @SerializedName("word")
-    var word: String
+    var word: String? = ""
 )

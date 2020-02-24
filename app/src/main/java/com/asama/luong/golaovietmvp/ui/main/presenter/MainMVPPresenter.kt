@@ -11,4 +11,6 @@ interface MainMVPPresenter<V: MainMVPView, I: MainMVPInteractor>: MVPPresenter<V
     fun onDrawerOptionAboutClick() : Unit?
 
     fun onDrawerOptionRateUsClick(): Unit?
+
+    fun receiveRandomWordData()
 }

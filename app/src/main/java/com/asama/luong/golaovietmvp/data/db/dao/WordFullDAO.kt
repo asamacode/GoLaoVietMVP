@@ -12,6 +12,9 @@ interface WordFullDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllWord(wordFull: List<WordFullEntity>)
 
-    @Query("SELECT * FROM wordfull")
-    fun loadAllWord(): List<WordFullEntity>
+    @Query("SELECT * FROM wordfull ORDER BY RANDOM() LIMIT 1")
+    fun loadRandomWord(): WordFullEntity
+
+    @Query("SELECT * FROM wordfull WHERE word LIKE :key")
+    fun searchWord(key: String) : List<WordFullEntity>
 }

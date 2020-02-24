@@ -6,15 +6,18 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.asama.luong.golaovietmvp.R
+import com.asama.luong.golaovietmvp.data.model.WordFull
 import com.asama.luong.golaovietmvp.ui.about.view.AboutFragment
 import com.asama.luong.golaovietmvp.ui.base.view.BaseActivity
 import com.asama.luong.golaovietmvp.ui.main.interactor.MainMVPInteractor
 import com.asama.luong.golaovietmvp.ui.main.presenter.MainMVPPresenter
+import com.asama.luong.golaovietmvp.util.ToastUtil
 import com.asama.luong.golaovietmvp.util.extension.addFragment
 import com.asama.luong.golaovietmvp.util.extension.removeFragment
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.content_main.*
 import javax.inject.Inject
 
 class MainActivity : BaseActivity(), MainMVPView,
@@ -43,6 +46,18 @@ class MainActivity : BaseActivity(), MainMVPView,
 
     }
 
+    override fun setRandomWordUI(wordFull: WordFull) {
+        txtWordSG.text = wordFull.word
+        txtWordSpell.text = wordFull.spell
+        txtMeanSG.text = wordFull.commonmean
+
+        ToastUtil.showToast(this, wordFull.commonmean)
+    }
+
+    override fun handleError(throwable: Throwable) {
+        ToastUtil.showToast(this, throwable.message)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -50,6 +65,8 @@ class MainActivity : BaseActivity(), MainMVPView,
         setUpDrawerMenu()
 
         mPresenter.onAttach(this)
+
+        mPresenter.receiveRandomWordData()
     }
 
     private fun setUpDrawerMenu() {

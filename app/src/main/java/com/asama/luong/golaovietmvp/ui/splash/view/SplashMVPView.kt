@@ -4,9 +4,5 @@ import com.asama.luong.golaovietmvp.ui.base.view.MVPView
 
 interface SplashMVPView: MVPView {
 
-    fun showSuccessToast()
-
-    fun showErrorToast()
-
     fun openMainActivity()
 }

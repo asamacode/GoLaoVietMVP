@@ -1,5 +1,6 @@
 package com.asama.luong.golaovietmvp.data.db.entity
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
@@ -14,15 +15,21 @@ import androidx.room.PrimaryKey
 )
 data class ExampleEntity(
 
-    @PrimaryKey(autoGenerate = true) var id: Long,
+    @PrimaryKey(autoGenerate = true) var id: Long = 0,
 
-    var mean: String,
+    @ColumnInfo(name = "mean")
+    var mean: String? = "",
 
-    var type: String,
+    @ColumnInfo(name = "type")
+    var type: String? = "",
 
-    var word_id: String,
+    @ColumnInfo(name = "word_id")
+    var word_id: String = "",
 
-    var ex: String,
+    @ColumnInfo(name = "ex")
+    var ex: String? = "",
 
-    var extran: String
-)
+    @ColumnInfo(name = "extran")
+    var extran: String? = ""
+) {
+}

@@ -5,4 +5,6 @@ import com.asama.luong.golaovietmvp.ui.splash.interactor.SplashMVPInteractor
 import com.asama.luong.golaovietmvp.ui.splash.view.SplashMVPView
 
 interface SplashMVPPresenter<V: SplashMVPView, I: SplashMVPInteractor>: MVPPresenter<V, I> {
+
+    fun feedInDatabase()
 }

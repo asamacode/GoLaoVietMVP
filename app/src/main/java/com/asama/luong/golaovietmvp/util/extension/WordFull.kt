@@ -4,7 +4,7 @@ import com.asama.luong.golaovietmvp.data.db.entity.WordFullEntity
 import com.asama.luong.golaovietmvp.data.model.WordFull
 
 internal fun WordFull.toEntity() : WordFullEntity {
-    return WordFullEntity(this.word, this.commonmean, this.image, this.spell)
+    return WordFullEntity(this.word!!, this.commonmean, this.image, this.spell)
 }
 
 internal fun WordFullEntity.toWordFull() : WordFull {

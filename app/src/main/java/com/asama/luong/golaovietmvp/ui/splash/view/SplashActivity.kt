@@ -29,17 +29,13 @@ class SplashActivity : BaseActivity(), SplashMVPView {
     override fun onFragmentDetached(tag: String) {
     }
 
-    override fun showSuccessToast() {
-        Toast.makeText(this, "Ok", Toast.LENGTH_LONG).show()
-    }
-
-    override fun showErrorToast() {
-        Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
-    }
-
     override fun openMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    override fun handleError(throwable: Throwable) {
+        Toast.makeText(this, throwable.message, Toast.LENGTH_LONG).show()
     }
 }

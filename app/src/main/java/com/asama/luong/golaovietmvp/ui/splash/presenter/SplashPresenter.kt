@@ -1,6 +1,5 @@
 package com.asama.luong.golaovietmvp.ui.splash.presenter
 
-import android.util.Log
 import com.asama.luong.golaovietmvp.ui.base.presenter.BasePresenter
 import com.asama.luong.golaovietmvp.ui.splash.interactor.SplashMVPInteractor
 import com.asama.luong.golaovietmvp.ui.splash.view.SplashMVPView
@@ -24,22 +23,47 @@ class SplashPresenter<V : SplashMVPView, I : SplashMVPInteractor> @Inject intern
         feedInDatabase()
     }
 
-    private fun feedInDatabase() = interactor?.let {
-        it.loadWordData()
-            .compose(schedulerProvider.ioToMainObservableScheduler())
-            .subscribe {
-                if (it) {
-                    getView()?.openMainActivity()
-                    getListWord()
-                } else Log.wtf("HICHIC", "loi")
+    override fun feedInDatabase() {
+
+        if (!interactor?.getLoadedData()!!) {
+            getView()?.showProgress()
+
+            interactor?.let {
+                it.loadWordData()
+                    .compose(schedulerProvider.ioToMainObservableScheduler())
+                    .subscribe(
+                        {
+                            if (it) {
+//                                feedMeanData()
+                                getView()?.openMainActivity()
+                                interactor!!.setLoadedData()
+                            }
+                        }, {
+                            getView()?.handleError(it)
+                            getView()?.hideProgress()
+                        }
+                    )
             }
+        } else getView()?.openMainActivity()
     }
 
-    internal fun getListWord() = interactor?.let {
-        it.loadWordFull()
-            .compose(schedulerProvider.ioToMainObservableScheduler())
-            .subscribe {
-                Log.wtf("HICHIC", it.get(0).commonMean)
-            }
+    private fun feedMeanData() {
+        interactor?.let {
+            it.loadMeanData()
+                .compose(schedulerProvider.ioToMainObservableScheduler())
+                .subscribe(
+                    {
+                        if (it) {
+                            getView()?.openMainActivity()
+                            interactor!!.setLoadedData()
+                            getView()?.hideProgress()
+                        }
+                    }, {
+                        getView()?.handleError(it)
+                        getView()?.hideProgress()
+                    }
+                )
+        }
     }
+
 }

@@ -7,13 +7,13 @@ data class Example(
 
     @Expose
     @SerializedName("mean")
-    var mean: String,
+    var mean: String? = "",
 
     @Expose
     @SerializedName("ex")
-    var ex: String,
+    var ex: String? = "",
 
     @Expose
     @SerializedName("extran")
-    var extran: String
+    var extran: String? = ""
 )

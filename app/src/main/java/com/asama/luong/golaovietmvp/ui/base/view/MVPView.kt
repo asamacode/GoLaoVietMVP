@@ -5,4 +5,6 @@ interface MVPView {
     fun showProgress()
 
     fun hideProgress()
+
+    fun handleError(throwable: Throwable)
 }

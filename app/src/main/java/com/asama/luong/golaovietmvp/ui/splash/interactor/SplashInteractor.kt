@@ -1,9 +1,7 @@
 package com.asama.luong.golaovietmvp.ui.splash.interactor
 
 import android.content.Context
-import android.util.Log
 import com.asama.luong.golaovietmvp.data.DataManager
-import com.asama.luong.golaovietmvp.data.db.entity.WordFullEntity
 import com.asama.luong.golaovietmvp.data.model.Mean
 import com.asama.luong.golaovietmvp.data.model.WordFull
 import com.asama.luong.golaovietmvp.ui.base.interactor.BaseInteractor
@@ -31,19 +29,12 @@ class SplashInteractor @Inject internal constructor(
                 AppConstants.SEED_DB_WORDFULL
             ), type
         )
-
-        Log.wtf("HICHIC",  "haha $wordList")
         loadMeanData()
         return dataManager.saveListWordFull(wordList)
 
     }
 
-    override fun loadWordFull(): Observable<List<WordFullEntity>> {
-
-        return dataManager.getlistWordFull()
-    }
-
-    override fun loadMeanData(){
+    override fun loadMeanData(): Observable<Boolean> {
         val builder = GsonBuilder().excludeFieldsWithoutExposeAnnotation()
         val gson = builder.create()
 
@@ -54,9 +45,11 @@ class SplashInteractor @Inject internal constructor(
                 AppConstants.SEED_DB_MEAN
             ), type
         )
-
-        Log.wtf("HICHIC",  "haha $meanList")
+        return dataManager.saveMeanList(meanList)
     }
 
+    override fun getLoadedData(): Boolean = mDataManager.isLoadedData()
+
+    override fun setLoadedData()= mDataManager.setDataLoaded(true)
 
 }

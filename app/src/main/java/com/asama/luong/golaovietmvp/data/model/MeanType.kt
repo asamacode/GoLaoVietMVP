@@ -6,9 +6,9 @@ import com.google.gson.annotations.SerializedName
 data class MeanType(
     @Expose
     @SerializedName("type")
-    var type: String,
+    var type: String? = "",
 
     @Expose
     @SerializedName("meanlist")
-    var meanList: List<Example>
+    var meanList: List<Example>? = null
 )

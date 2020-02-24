@@ -7,9 +7,9 @@ data class Mean(
 
     @Expose
     @SerializedName("word")
-    var word: String,
+    var word: String? = "",
 
     @Expose
     @SerializedName("listtype")
-    var listType: List<MeanType>
+    var listType: List<MeanType>? = null
 )
