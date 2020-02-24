@@ -2,10 +2,12 @@ package com.asama.luong.golaovietmvp.di.module
 
 import android.app.Application
 import android.content.Context
+import androidx.room.Room
 import com.asama.luong.golaovietmvp.data.AppDataManager
 import com.asama.luong.golaovietmvp.data.DataManager
+import com.asama.luong.golaovietmvp.data.db.AppDatabase
+import com.asama.luong.golaovietmvp.data.db.AppDbHelper
 import com.asama.luong.golaovietmvp.data.db.DbHelper
-import com.asama.luong.golaovietmvp.data.db.RealmDbHelper
 import com.asama.luong.golaovietmvp.data.preferences.AppPrefHelper
 import com.asama.luong.golaovietmvp.data.preferences.PrefHelper
 import com.asama.luong.golaovietmvp.di.DatabaseInfo
@@ -15,7 +17,6 @@ import com.asama.luong.golaovietmvp.util.SchedulerProvider
 import dagger.Module
 import dagger.Provides
 import io.reactivex.disposables.CompositeDisposable
-import io.realm.RealmConfiguration
 import javax.inject.Singleton
 
 @Module
@@ -31,11 +32,9 @@ class AppModule {
 
     @Provides
     @Singleton
-    internal fun provideDbConfiguration(@DatabaseInfo dbName: String) : RealmConfiguration =
-        RealmConfiguration.Builder()
-            .deleteRealmIfMigrationNeeded()
-            .name(dbName)
-            .build()
+    internal fun provideAppDatabase(@DatabaseInfo dbName: String, context: Context): AppDatabase {
+        return Room.databaseBuilder(context, AppDatabase::class.java, dbName).fallbackToDestructiveMigration().build()
+    }
 
     @Provides
     @PrefInfo
@@ -47,7 +46,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    internal fun provideDbHelper(appDbHelper: RealmDbHelper): DbHelper = appDbHelper
+    internal fun provideDbHelper(appDbHelper: AppDbHelper): DbHelper = appDbHelper
 
     @Provides
     @Singleton

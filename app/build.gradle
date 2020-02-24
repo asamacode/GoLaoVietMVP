@@ -6,8 +6,6 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
-apply plugin: 'realm-android'
-
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -49,6 +47,10 @@ dependencies {
 
     // parser
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+
+    // database
+    implementation "android.arch.persistence.room:rxjava2:$rootProject.roomDatabaseVersion"
+    kapt "android.arch.persistence.room:compiler:$rootProject.roomDatabaseVersion"
 
     // dependency injection
     implementation "com.google.dagger:dagger:$rootProject.dagger2Version"

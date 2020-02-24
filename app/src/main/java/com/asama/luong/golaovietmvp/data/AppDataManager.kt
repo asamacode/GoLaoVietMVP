@@ -1,27 +1,23 @@
 package com.asama.luong.golaovietmvp.data
 
 import com.asama.luong.golaovietmvp.data.db.DbHelper
-import com.asama.luong.golaovietmvp.data.db.model.Mean
-import com.asama.luong.golaovietmvp.data.db.model.Word
-import com.asama.luong.golaovietmvp.data.db.model.WordFull
+import com.asama.luong.golaovietmvp.data.db.entity.WordFullEntity
+import com.asama.luong.golaovietmvp.data.model.WordFull
 import com.asama.luong.golaovietmvp.data.preferences.PrefHelper
+import io.reactivex.Observable
 import javax.inject.Inject
 
 class AppDataManager @Inject constructor(
     private val dbHelper: DbHelper,
     private val prefHelper: PrefHelper
 ) : DataManager {
+    override fun saveListWordFull(listWord: List<WordFull>): Observable<Boolean> {
+        return dbHelper.saveListWordFull(listWord)
+    }
 
-
-    override fun getListSaveWord(): List<Word> = dbHelper.getListSaveWord()
-
-    override fun searchWord(word: String): List<WordFull> = dbHelper.searchWord(word)
-
-    override fun getMeanWord(word: String): Mean = dbHelper.getMeanWord(word)
-
-    override fun insertWord(word: Word) = dbHelper.insertWord(word)
-
-    override fun deleteWord(word: Word) = dbHelper.deleteWord(word)
+    override fun getlistWordFull(): Observable<List<WordFullEntity>> {
+        return dbHelper.getlistWordFull()
+    }
 
     override fun isLoadedData(): Boolean = prefHelper.isLoadedData()
 

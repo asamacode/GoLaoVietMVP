@@ -1,0 +1,92 @@
+[
+  {
+    "listtype": [
+      {
+        "meanlist": [
+          {
+            "ex": "",
+            "extran": "",
+            "mean": "Phụ âm thứ nhất của tiếng Lào"
+          }
+        ],
+        "type": "1"
+      }
+    ],
+    "word": "ກ"
+  },
+  {
+    "listtype": [
+      {
+        "meanlist": [
+          {
+            "ex": "ຂ້ອຍກະວ່າມື້ອື່ນຊິໄປຮຽນ",
+            "extran": "Tôi dự đoán ngày mai sẽ đi học",
+            "mean": "Dự đoán"
+          }
+        ],
+        "type": "3"
+      }
+    ],
+    "word": "ກະ"
+  },
+  {
+    "listtype": [
+      {
+        "meanlist": [
+          {
+            "ex": "",
+            "extran": "",
+            "mean": "Cưa"
+          }
+        ],
+        "type": "1"
+      }
+    ],
+    "word": "ກະກະຈະ"
+  },
+  {
+    "listtype": [
+      {
+        "meanlist": [
+          {
+            "ex": "",
+            "extran": "",
+            "mean": "Cục gỗ"
+          }
+        ],
+        "type": "1"
+      }
+    ],
+    "word": "ກະກຸ"
+  },
+  {
+    "listtype": [
+      {
+        "meanlist": [
+          {
+            "ex": "",
+            "extran": "",
+            "mean": "Chim bồ cầu"
+          }
+        ],
+        "type": "1"
+      }
+    ],
+    "word": "ກະກຸຕະ"
+  },
+  {
+    "listtype": [
+      {
+        "meanlist": [
+          {
+            "ex": "",
+            "extran": "",
+            "mean": "tên Phật Thích Ca"
+          }
+        ],
+        "type": "1"
+      }
+    ],
+    "word": "ກະກຸສັນໂທ"
+  }
+]

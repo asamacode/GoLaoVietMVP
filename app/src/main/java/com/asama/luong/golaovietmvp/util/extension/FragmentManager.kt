@@ -1,4 +1,4 @@
-package com.asama.luong.golaovietmvp.util.extention
+package com.asama.luong.golaovietmvp.util.extension
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

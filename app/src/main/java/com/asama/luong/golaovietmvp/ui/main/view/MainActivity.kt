@@ -10,8 +10,8 @@ import com.asama.luong.golaovietmvp.ui.about.view.AboutFragment
 import com.asama.luong.golaovietmvp.ui.base.view.BaseActivity
 import com.asama.luong.golaovietmvp.ui.main.interactor.MainMVPInteractor
 import com.asama.luong.golaovietmvp.ui.main.presenter.MainMVPPresenter
-import com.asama.luong.golaovietmvp.util.extention.addFragment
-import com.asama.luong.golaovietmvp.util.extention.removeFragment
+import com.asama.luong.golaovietmvp.util.extension.addFragment
+import com.asama.luong.golaovietmvp.util.extension.removeFragment
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*

@@ -1,18 +1,13 @@
 package com.asama.luong.golaovietmvp.data.db
 
-import com.asama.luong.golaovietmvp.data.db.model.Mean
-import com.asama.luong.golaovietmvp.data.db.model.Word
-import com.asama.luong.golaovietmvp.data.db.model.WordFull
+import com.asama.luong.golaovietmvp.data.db.entity.WordFullEntity
+import com.asama.luong.golaovietmvp.data.model.WordFull
+import io.reactivex.Observable
 
 interface DbHelper {
 
-    fun getListSaveWord() : List<Word>
+    fun saveListWordFull(listWord: List<WordFull>) : Observable<Boolean>
 
-    fun searchWord(word: String) : List<WordFull>
+    fun getlistWordFull(): Observable<List<WordFullEntity>>
 
-    fun getMeanWord(word: String) : Mean
-
-    fun insertWord(word: Word)
-
-    fun deleteWord(word: Word)
 }
