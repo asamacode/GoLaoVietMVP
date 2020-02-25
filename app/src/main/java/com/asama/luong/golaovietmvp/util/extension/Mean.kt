@@ -45,13 +45,13 @@ internal fun List<ExampleEntity>.toMean() : Mean{
             exam.ex = example.ex
             exam.extran = example.extran
             exam.mean = example.mean
-            examListV.add(exam)
+            examListA.add(exam)
         } else if (example.type == "3") {
             val exam = Example()
             exam.ex = example.ex
             exam.extran = example.extran
             exam.mean = example.mean
-            examListA.add(exam)
+            examListV.add(exam)
         }
     }
 

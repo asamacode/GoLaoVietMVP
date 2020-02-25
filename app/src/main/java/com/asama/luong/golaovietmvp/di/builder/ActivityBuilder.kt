@@ -1,5 +1,7 @@
 package com.asama.luong.golaovietmvp.di.builder
 
+import com.asama.luong.golaovietmvp.ui.detail_word.DetailWordActivityModule
+import com.asama.luong.golaovietmvp.ui.detail_word.view.DetailWordActivity
 import com.asama.luong.golaovietmvp.ui.main.MainActivityModule
 import com.asama.luong.golaovietmvp.ui.main.view.MainActivity
 import com.asama.luong.golaovietmvp.ui.splash.SplashActivityModule
@@ -15,5 +17,8 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [(MainActivityModule::class)])
     abstract fun bindMainActivity(): MainActivity
+
+    @ContributesAndroidInjector(modules = [(DetailWordActivityModule::class)])
+    abstract fun bindDetailWord(): DetailWordActivity
 
 }

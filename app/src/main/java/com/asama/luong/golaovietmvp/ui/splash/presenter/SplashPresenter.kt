@@ -26,7 +26,7 @@ class SplashPresenter<V : SplashMVPView, I : SplashMVPInteractor> @Inject intern
     override fun feedInDatabase() {
 
         if (!interactor?.getLoadedData()!!) {
-            getView()?.showProgress()
+            getView()?.showDialogLoad()
 
             interactor?.let {
                 it.loadWordData()
@@ -34,17 +34,17 @@ class SplashPresenter<V : SplashMVPView, I : SplashMVPInteractor> @Inject intern
                     .subscribe(
                         {
                             if (it) {
-//                                feedMeanData()
-                                getView()?.openMainActivity()
-                                interactor!!.setLoadedData()
+                                feedMeanData()
                             }
                         }, {
                             getView()?.handleError(it)
-                            getView()?.hideProgress()
+                            getView()?.hideDialogLoad()
                         }
                     )
             }
-        } else getView()?.openMainActivity()
+        } else {
+            getView()?.openMainActivity()
+        }
     }
 
     private fun feedMeanData() {
@@ -56,11 +56,11 @@ class SplashPresenter<V : SplashMVPView, I : SplashMVPInteractor> @Inject intern
                         if (it) {
                             getView()?.openMainActivity()
                             interactor!!.setLoadedData()
-                            getView()?.hideProgress()
+                            getView()?.hideDialogLoad()
                         }
                     }, {
                         getView()?.handleError(it)
-                        getView()?.hideProgress()
+                        getView()?.hideDialogLoad()
                     }
                 )
         }

@@ -9,4 +9,6 @@ object AppConstants {
     internal val SEED_DB_WORDFULL = "seed/wordfull.json"
 
     internal val SEED_DB_MEAN = "seed/mean.json"
+
+    internal val KEY_SEND_WORD = "SEND_W"
 }

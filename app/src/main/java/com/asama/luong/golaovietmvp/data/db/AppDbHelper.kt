@@ -27,7 +27,8 @@ class AppDbHelper @Inject constructor(
     override fun saveMeanList(meanList: List<Mean>): Observable<Boolean> {
         return Observable.fromCallable{
 
-            mAppDatabase.exampleDao().insertAllExample(meanList.toEntity())
+            val listExam = meanList.toEntity()
+            mAppDatabase.exampleDao().insertAllExample(listExam)
             return@fromCallable true
         }
     }

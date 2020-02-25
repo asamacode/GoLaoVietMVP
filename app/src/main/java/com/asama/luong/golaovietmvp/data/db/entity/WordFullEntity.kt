@@ -2,12 +2,14 @@ package com.asama.luong.golaovietmvp.data.db.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "wordfull")
+@Entity(tableName = "wordfull",indices =  arrayOf(Index(value = ["word", "common_mean"],
+    unique = true)))
 data class WordFullEntity (
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "word")
     var word: String = "",
 

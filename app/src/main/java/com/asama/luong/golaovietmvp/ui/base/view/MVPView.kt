@@ -7,4 +7,8 @@ interface MVPView {
     fun hideProgress()
 
     fun handleError(throwable: Throwable)
+
+    fun showDialogLoad()
+
+    fun hideDialogLoad()
 }

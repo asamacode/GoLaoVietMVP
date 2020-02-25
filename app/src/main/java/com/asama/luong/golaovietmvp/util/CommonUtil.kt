@@ -21,4 +21,18 @@ object CommonUtil {
             return it
         }
     }
+
+    fun showInitDataDialog(context: Context): ProgressDialog {
+        val progressDialog = ProgressDialog(context)
+
+        progressDialog.let {
+            it.isIndeterminate = true
+            it.setMessage(context.getString(R.string.load_data_first_time))
+            it.setCancelable(false)
+            it.setCanceledOnTouchOutside(false)
+            it.show()
+
+            return it
+        }
+    }
 }

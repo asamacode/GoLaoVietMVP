@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:orientation="vertical"
+              android:weightSum="10"
+              tools:context=".ui.detail_word.view.DetailWordActivity">
+
+    <LinearLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+        <ImageView
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/imgclose"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:onClick="BackClick"
+                android:src="@drawable/ic_arrow_back_black_24dp"/>
+
+        <EditText
+                android:paddingLeft="5dp"
+                android:id="@+id/txtSearch"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="3dp"
+                android:layout_weight="8"
+                android:background="@drawable/border_search"
+                android:focusable="false"
+                android:hint="Vietnam"
+                android:onClick="clickText"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:textColorHint="@color/colorPrimary"/>
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:onClick="DeleteClick"
+                android:src="@drawable/ic_delete_forever_black_24dp"/>
+
+
+    </LinearLayout>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@id/appbar"
+            android:layout_weight="8.2">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:id="@+id/txtWord"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Vietnam"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="24sp"
+                        android:textStyle="bold"/>
+
+                <TextView
+                        android:layout_marginLeft="10dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/txtWord"
+                        android:id="@+id/txtSpell"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="/Spell/"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                <ImageView
+                        android:id="@+id/imgSpeak"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_toRightOf="@id/txtSpell"
+                        android:src="@drawable/ic_volume_up_black_24dp"/>
+
+                <ImageView
+                        android:id="@+id/imgstar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_favorite_border_black_24dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView
+                        android:id="@+id/txtMean"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="- Việt Nam"
+                        android:textSize="22sp"
+                        android:textStyle="bold"/>
+                <ImageView
+                        android:id="@+id/imgSpeak2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_toRightOf="@id/txtMean"
+                        android:src="@drawable/ic_volume_up_black_24dp"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                    android:id="@+id/container_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                <TextView
+                        android:id="@+id/txtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txtnoun"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/listn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/container_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                <TextView
+                        android:id="@+id/txtadj"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txtadj"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/listadj"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/container_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                <TextView
+                        android:id="@+id/txtv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txtverb"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/listv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/txtImg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txtimagedes"
+                        android:textColor="@android:color/holo_red_light"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                <ImageView
+                        android:id="@+id/imgw"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:scaleType="fitXY"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            android:background="@drawable/border_edit">
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

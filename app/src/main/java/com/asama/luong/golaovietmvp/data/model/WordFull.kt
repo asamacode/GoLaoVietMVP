@@ -2,8 +2,14 @@ package com.asama.luong.golaovietmvp.data.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
+
 
 data class WordFull(
+
+    @Expose
+    @SerializedName("word")
+    var word: String? = "",
 
     @Expose
     @SerializedName("commonmean")
@@ -15,9 +21,5 @@ data class WordFull(
 
     @Expose
     @SerializedName("spell")
-    var spell: String? = "",
-
-    @Expose
-    @SerializedName("word")
-    var word: String? = ""
-)
+    var spell: String? = ""
+) : Serializable

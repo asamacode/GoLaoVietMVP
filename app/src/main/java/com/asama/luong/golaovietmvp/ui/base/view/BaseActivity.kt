@@ -28,6 +28,19 @@ abstract class BaseActivity: MVPView, AppCompatActivity(), BaseFragment.Callback
         }
     }
 
+    override fun showDialogLoad() {
+        hideDialogLoad()
+
+        mProgressDialog = CommonUtil.showInitDataDialog(this)
+    }
+
+    override fun hideDialogLoad() {
+        mProgressDialog?.let {
+            if (it.isShowing)
+                it.cancel()
+        }
+    }
+
     private fun performDI() {
         return AndroidInjection.inject(this)
     }
