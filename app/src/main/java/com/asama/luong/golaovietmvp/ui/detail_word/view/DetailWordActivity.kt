@@ -3,7 +3,9 @@ package com.asama.luong.golaovietmvp.ui.detail_word.view
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.asama.luong.golaovietmvp.R
 import com.asama.luong.golaovietmvp.data.model.Mean
 import com.asama.luong.golaovietmvp.data.model.WordFull
@@ -21,6 +23,24 @@ class DetailWordActivity : BaseActivity(), DetailWordMVPView {
     @Inject
     internal lateinit var mPresenter : DetailPresenter<DetailWordMVPView, DetailMVPInteractor>
 
+    @Inject
+    internal lateinit var mLayoutManagerNoun: LinearLayoutManager
+
+    @Inject
+    internal lateinit var mLayoutManagerVerb: LinearLayoutManager
+
+    @Inject
+    internal lateinit var mLayoutManagerAdj: LinearLayoutManager
+
+    @Inject
+    internal lateinit var mAdapterNoun: ExampleAdapter
+
+    @Inject
+    internal lateinit var mAdapterVerb: ExampleAdapter
+
+    @Inject
+    internal lateinit var mAdapterAdj: ExampleAdapter
+
     companion object {
 
         internal fun newIntent(context: Context, wordFull: WordFull) : Intent {
@@ -34,9 +54,26 @@ class DetailWordActivity : BaseActivity(), DetailWordMVPView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_word)
 
+        setUpListExample()
+
         mPresenter.onAttach(this)
 
         mPresenter.getWordFullData(intent)
+    }
+
+    override fun setUp() {
+
+    }
+
+    private fun setUpListExample() {
+        listn.layoutManager = mLayoutManagerNoun
+        listn.hasFixedSize()
+
+        listadj.layoutManager = mLayoutManagerAdj
+        listadj.hasFixedSize()
+
+        listv.layoutManager = mLayoutManagerVerb
+        listv.hasFixedSize()
     }
 
     override fun setWordData(wordFull: WordFull) {
@@ -44,7 +81,12 @@ class DetailWordActivity : BaseActivity(), DetailWordMVPView {
         txtWord.text = wordFull.word
         txtSpell.text = "/${wordFull.spell}/"
         txtMean.text = wordFull.commonmean
-        Glide.with(this).load(wordFull.image).into(imgw)
+
+        if (!TextUtils.isEmpty(wordFull.image))
+            Glide.with(this).load(wordFull.image).into(imgw)
+
+        // then call get mean
+        mPresenter.getMeanData(wordFull.word!!)
     }
 
     override fun setMeanData(mean: Mean) {
@@ -52,19 +94,21 @@ class DetailWordActivity : BaseActivity(), DetailWordMVPView {
             if (mean.listType!!.get(i).type.equals("1")) {
                 container_1.setVisibility(View.VISIBLE)
                 val list1 = mean.listType!!.get(i).meanList
-                // do later
-//                adapter = DetailWordAdapter(list1, this)
-//                listn.adapter = adapter
+
+                mAdapterNoun.addToExampleList(list1!!)
+                listn.adapter = mAdapterNoun
             } else if (mean.listType!!.get(i).type.equals("2")) {
                 container_2.setVisibility(View.VISIBLE)
                 val list2 = mean.listType!!.get(i).meanList
-//                adapter2 = DetailWordAdapter(list2, this)
-//                listadj.adapter = adapter2
+
+                mAdapterAdj.addToExampleList(list2!!)
+                listadj.adapter = mAdapterAdj
             } else if (mean.listType!!.get(i).type.equals("3")) {
                 container_3.setVisibility(View.VISIBLE)
                 val list3 = mean.listType!!.get(i).meanList
-//                adapter3 = DetailWordAdapter(list3, this)
-//                listv.adapter = adapter3
+
+                mAdapterVerb.addToExampleList(list3!!)
+                listv.adapter = mAdapterVerb
             }
         }
     }

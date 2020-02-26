@@ -23,6 +23,10 @@ class SplashActivity : BaseActivity(), SplashMVPView {
         
     }
 
+    override fun setUp() {
+
+    }
+
     override fun onFragmentAttached() {
     }
 

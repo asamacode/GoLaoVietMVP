@@ -26,4 +26,18 @@ class DetailPresenter<V : DetailWordMVPView, I : DetailMVPInteractor> @Inject co
         val word = interactor?.getWordData(intent)
         getView()?.setWordData(word!!)
     }
+
+    override fun getMeanData(word: String) {
+
+        interactor?.let {
+            it.getMeanByWord(word)
+                .compose(schedulerProvider.ioToMainObservableScheduler())
+                .subscribe({
+                    getView()?.setMeanData(it)
+                }, {
+                    getView()?.handleError(it)
+                })
+        }
+
+    }
 }

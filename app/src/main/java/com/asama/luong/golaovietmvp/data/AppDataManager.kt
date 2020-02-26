@@ -1,7 +1,6 @@
 package com.asama.luong.golaovietmvp.data
 
 import com.asama.luong.golaovietmvp.data.db.DbHelper
-import com.asama.luong.golaovietmvp.data.db.entity.ExampleEntity
 import com.asama.luong.golaovietmvp.data.model.Mean
 import com.asama.luong.golaovietmvp.data.model.WordFull
 import com.asama.luong.golaovietmvp.data.preferences.PrefHelper
@@ -24,7 +23,7 @@ class AppDataManager @Inject constructor(
         return dbHelper.getRandomWordFull()
     }
 
-    override fun getMeanWordByWordId(word: String): Observable<List<ExampleEntity>> {
+    override fun getMeanWordByWordId(word: String): Observable<Mean> {
         return dbHelper.getMeanWordByWordId(word)
     }
 

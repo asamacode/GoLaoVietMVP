@@ -8,4 +8,6 @@ import com.asama.luong.golaovietmvp.ui.detail_word.view.DetailWordMVPView
 interface DetailMVPPresenter<V: DetailWordMVPView, I: DetailMVPInteractor>: MVPPresenter<V, I> {
 
     fun getWordFullData(intent: Intent)
+
+    fun getMeanData(word: String)
 }

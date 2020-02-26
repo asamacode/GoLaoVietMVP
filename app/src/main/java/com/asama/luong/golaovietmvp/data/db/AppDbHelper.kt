@@ -1,10 +1,10 @@
 package com.asama.luong.golaovietmvp.data.db
 
-import com.asama.luong.golaovietmvp.data.db.entity.ExampleEntity
 import com.asama.luong.golaovietmvp.data.db.entity.WordFullEntity
 import com.asama.luong.golaovietmvp.data.model.Mean
 import com.asama.luong.golaovietmvp.data.model.WordFull
 import com.asama.luong.golaovietmvp.util.extension.toEntity
+import com.asama.luong.golaovietmvp.util.extension.toMean
 import com.asama.luong.golaovietmvp.util.extension.toWordFull
 import io.reactivex.Observable
 import javax.inject.Inject
@@ -39,9 +39,9 @@ class AppDbHelper @Inject constructor(
         }
     }
 
-    override fun getMeanWordByWordId(word: String): Observable<List<ExampleEntity>> {
+    override fun getMeanWordByWordId(word: String): Observable<Mean> {
         return Observable.fromCallable {
-            return@fromCallable mAppDatabase.exampleDao().loadExampleByWord(word)
+            return@fromCallable mAppDatabase.exampleDao().loadExampleByWord(word).toMean()
         }
     }
 

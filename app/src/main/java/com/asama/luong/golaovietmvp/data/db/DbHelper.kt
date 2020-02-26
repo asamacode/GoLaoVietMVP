@@ -1,6 +1,5 @@
 package com.asama.luong.golaovietmvp.data.db
 
-import com.asama.luong.golaovietmvp.data.db.entity.ExampleEntity
 import com.asama.luong.golaovietmvp.data.model.Mean
 import com.asama.luong.golaovietmvp.data.model.WordFull
 import io.reactivex.Observable
@@ -13,7 +12,7 @@ interface DbHelper {
 
     fun getRandomWordFull() : Observable<WordFull>
 
-    fun getMeanWordByWordId(word: String) : Observable<List<ExampleEntity>>
+    fun getMeanWordByWordId(word: String) : Observable<Mean>
 
     fun searchWord(key: String) : Observable<List<WordFull>>
 }

@@ -2,6 +2,7 @@ package com.asama.luong.golaovietmvp.ui.main.view
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -12,6 +13,7 @@ import com.asama.luong.golaovietmvp.ui.base.view.BaseActivity
 import com.asama.luong.golaovietmvp.ui.detail_word.view.DetailWordActivity
 import com.asama.luong.golaovietmvp.ui.main.interactor.MainMVPInteractor
 import com.asama.luong.golaovietmvp.ui.main.presenter.MainMVPPresenter
+import com.asama.luong.golaovietmvp.ui.search_word.view.SearchWordActivity
 import com.asama.luong.golaovietmvp.util.ToastUtil
 import com.asama.luong.golaovietmvp.util.extension.addFragment
 import com.asama.luong.golaovietmvp.util.extension.removeFragment
@@ -47,6 +49,11 @@ class MainActivity : BaseActivity(), MainMVPView,
 
     }
 
+    override fun openSearchActivity(view: View) {
+        val intent = SearchWordActivity.newIntent(this)
+        startActivity(intent)
+    }
+
     override fun setRandomWordUI(wordFull: WordFull) {
         txtWordSG.text = wordFull.word
         txtWordSpell.text = "/${wordFull.spell}/"
@@ -71,6 +78,10 @@ class MainActivity : BaseActivity(), MainMVPView,
         mPresenter.onAttach(this)
 
         mPresenter.receiveRandomWordData()
+    }
+
+    override fun setUp() {
+
     }
 
     private fun setUpDrawerMenu() {

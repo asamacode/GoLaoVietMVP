@@ -15,6 +15,6 @@ interface WordFullDAO {
     @Query("SELECT * FROM wordfull ORDER BY RANDOM() LIMIT 1")
     fun loadRandomWord(): WordFullEntity
 
-    @Query("SELECT * FROM wordfull WHERE word LIKE :key")
+    @Query("SELECT * FROM wordfull WHERE word LIKE '%' || :key || '%' LIMIT 5")
     fun searchWord(key: String) : List<WordFullEntity>
 }

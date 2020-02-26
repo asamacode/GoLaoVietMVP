@@ -44,4 +44,6 @@ abstract class BaseActivity: MVPView, AppCompatActivity(), BaseFragment.Callback
     private fun performDI() {
         return AndroidInjection.inject(this)
     }
+
+    abstract fun setUp()
 }

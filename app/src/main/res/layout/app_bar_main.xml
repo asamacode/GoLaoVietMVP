@@ -27,7 +27,7 @@
                     android:background="@drawable/border_search"
                     android:focusable="false"
                     android:hint="@string/txtsearch"
-                    android:onClick="clickText"
+                    android:onClick="openSearchActivity"
                     android:paddingLeft="10dp"
                     android:textColorHint="@color/colorPrimary"
                     android:textSize="16sp" />

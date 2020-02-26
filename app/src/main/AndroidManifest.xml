@@ -10,6 +10,8 @@
             android:roundIcon="@drawable/logo"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".ui.search_word.view.SearchWordActivity" android:launchMode="singleTask">
+        </activity>
         <activity android:name=".ui.detail_word.view.DetailWordActivity">
         </activity>
         <activity android:name=".ui.splash.view.SplashActivity">

@@ -27,55 +27,58 @@ internal fun List<Mean>.toEntity(): List<ExampleEntity> {
 }
 
 internal fun List<ExampleEntity>.toMean() : Mean{
-    val mean = Mean()
-    val examListN = ArrayList<Example>()
-    val examListV = ArrayList<Example>()
-    val examListA = ArrayList<Example>()
-    val meanTypeList = ArrayList<MeanType>()
 
-    for (example in this) {
-        if (example.type == "1") {
-            val exam = Example()
-            exam.ex = example.ex
-            exam.extran = example.extran
-            exam.mean = example.mean
-            examListN.add(exam)
-        } else if (example.type == "2") {
-            val exam = Example()
-            exam.ex = example.ex
-            exam.extran = example.extran
-            exam.mean = example.mean
-            examListA.add(exam)
-        } else if (example.type == "3") {
-            val exam = Example()
-            exam.ex = example.ex
-            exam.extran = example.extran
-            exam.mean = example.mean
-            examListV.add(exam)
+    if (this.size > 0) {
+        val mean = Mean()
+        val examListN = ArrayList<Example>()
+        val examListV = ArrayList<Example>()
+        val examListA = ArrayList<Example>()
+        val meanTypeList = ArrayList<MeanType>()
+
+        for (example in this) {
+            if (example.type == "1") {
+                val exam = Example()
+                exam.ex = example.ex
+                exam.extran = example.extran
+                exam.mean = example.mean
+                examListN.add(exam)
+            } else if (example.type == "2") {
+                val exam = Example()
+                exam.ex = example.ex
+                exam.extran = example.extran
+                exam.mean = example.mean
+                examListA.add(exam)
+            } else if (example.type == "3") {
+                val exam = Example()
+                exam.ex = example.ex
+                exam.extran = example.extran
+                exam.mean = example.mean
+                examListV.add(exam)
+            }
         }
-    }
 
-    if (examListN.size > 0) {
-        val meanType = MeanType()
-        meanType.type = "1"
-        meanType.meanList = examListN
-        meanTypeList.add(meanType)
-    }
-    if (examListV.size > 0) {
-        val meanType = MeanType()
-        meanType.type = "2"
-        meanType.meanList = examListV
-        meanTypeList.add(meanType)
-    }
-    if (examListA.size > 0) {
-        val meanType = MeanType()
-        meanType.type = "3"
-        meanType.meanList = examListA
-        meanTypeList.add(meanType)
-    }
+        if (examListN.size > 0) {
+            val meanType = MeanType()
+            meanType.type = "1"
+            meanType.meanList = examListN
+            meanTypeList.add(meanType)
+        }
+        if (examListV.size > 0) {
+            val meanType = MeanType()
+            meanType.type = "2"
+            meanType.meanList = examListV
+            meanTypeList.add(meanType)
+        }
+        if (examListA.size > 0) {
+            val meanType = MeanType()
+            meanType.type = "3"
+            meanType.meanList = examListA
+            meanTypeList.add(meanType)
+        }
 
-    mean.word = this.get(0).word_id
-    mean.listType = meanTypeList
+        mean.word = this.get(0).word_id
+        mean.listType = meanTypeList
 
-    return mean
+        return mean
+    } else throw Exception("Dữ liệu đang cập nhật")
 }

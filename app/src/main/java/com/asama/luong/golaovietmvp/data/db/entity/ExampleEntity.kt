@@ -2,10 +2,11 @@ package com.asama.luong.golaovietmvp.data.db.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "examples"
+    tableName = "examples", indices = arrayOf(Index(value = ["word_id"], unique = false))
 )
 data class ExampleEntity(
 
